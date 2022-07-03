@@ -11,6 +11,7 @@ public interface IRoleService {
 	public Role getRoleById(long roleId);
 	public List<Role> getRolesByUserId(long userId);
 	public List<Role> getAllRoles();
+	//need to implement this
 	public List<User> getUsersByRole(String roleName);
 	public boolean deleteRoleById(long roleId);
 	public boolean deleteAllRoles();
