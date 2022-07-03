@@ -2,7 +2,6 @@ package com.ssl.service;
 
 import java.util.List;
 
-import com.ssl.entities.Role;
 import com.ssl.entities.User;
 
 public interface IUserService {
@@ -13,6 +12,6 @@ public interface IUserService {
 	public List<User> getAllUsers();
 	public boolean deleteUserById(long userId);
 	public boolean deleteAllUsers();
-	public List<User> getUsersByRole(String roleName);
-	public List<User> getUsersByRole(long roleId);
+	public List<User> getUsersByRoleName(String roleName);
+	public List<User> getUsersByRoleId(long roleId);
 }

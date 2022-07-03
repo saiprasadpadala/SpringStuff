@@ -23,7 +23,7 @@ public class User {
     private String password;
     private boolean enabled;
      
-    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST,CascadeType.REFRESH}, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.MERGE,CascadeType.REFRESH}, fetch = FetchType.EAGER)
     @JoinTable(name = "user_role",
       joinColumns = { @JoinColumn(name = "user_id_fk") },
       inverseJoinColumns = { @JoinColumn(name = "roleId_fk") })
@@ -81,4 +81,12 @@ public class User {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
+				+ ", roles=" + roles + "]";
+	}
+	
+	
 }

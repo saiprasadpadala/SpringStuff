@@ -39,15 +39,15 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	@Override
-	public List<User> getUsersByRole(String roleName) {
+	public List<User> getUsersByRoleName(String roleName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<User> getUsersByRole(long roleId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<User> getUsersByRoleId(long roleId) {
+		List<User> usersByRole = userRepository.findAllUsersByRoleId(roleId);
+		return usersByRole;
 	}
 
 	@Override

@@ -59,4 +59,10 @@ public class RoleController {
 		boolean role = roleService.deleteAllRoles();
 	    return new ResponseEntity<Boolean>(role, HttpStatus.OK);
 	}
+	
+	@GetMapping("/user/{userId}")
+	public ResponseEntity<List<Role>> getAllRolesByUserId(@PathVariable("userId") long userId) {
+		List<Role> roles = roleService.getRolesByUserId(userId);
+	    return new ResponseEntity<List<Role>>(roles, HttpStatus.OK);
+	}
 }

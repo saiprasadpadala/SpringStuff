@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ssl.entities.Role;
 import com.ssl.entities.User;
 import com.ssl.service.UserServiceImpl;
 
@@ -58,5 +59,11 @@ public class UserController {
 	public ResponseEntity<Boolean> deleteAllUsers() {
 		boolean isDeleted = userService.deleteAllUsers();
 	    return new ResponseEntity<Boolean>(isDeleted, HttpStatus.OK);
+	}
+	
+	@GetMapping("/role/{roleId}")
+	public ResponseEntity<List<User>> getAllUsersByRoleId(@PathVariable("roleId") long roleId) {
+		List<User> users = userService.getUsersByRoleId(roleId);
+	    return new ResponseEntity<List<User>>(users, HttpStatus.OK);
 	}
 }

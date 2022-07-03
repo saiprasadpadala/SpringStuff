@@ -1,9 +1,12 @@
 package com.ssl.entities;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Role {
@@ -12,7 +15,8 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long roleId;
 	private RoleName roleName;
-	
+	@ManyToMany(mappedBy = "roles")
+	private Set<User> users;
 	public Role() {
 		super();
 	}
@@ -43,5 +47,11 @@ public class Role {
 	public void setRoleName(RoleName roleName) {
 		this.roleName = roleName;
 	}
+
+	@Override
+	public String toString() {
+		return "Role [roleId=" + roleId + ", roleName=" + roleName + ", users=" + users + "]";
+	}
     
+	
 }
