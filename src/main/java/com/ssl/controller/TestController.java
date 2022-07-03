@@ -34,4 +34,5 @@ public class TestController {
 		String message = "This is User page";
 	    return new ResponseEntity<String>(message, HttpStatus.OK);
 	}
+	
 }
