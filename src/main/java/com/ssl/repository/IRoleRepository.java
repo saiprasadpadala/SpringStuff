@@ -19,4 +19,10 @@ public interface IRoleRepository extends JpaRepository<Role, Long>{
 	@Transactional
 	@Query(value = "Delete from user_role where role_id_fk =?1", nativeQuery = true)
 	public void deleteRolesFromJointTableByRoleId(long roleId);
+	
+	@Modifying
+	@Transactional
+	@Query(value = "Delete from user_role", nativeQuery = true)
+	public void deleteAllRolesFromJointTableByRoleId();
+	
 }

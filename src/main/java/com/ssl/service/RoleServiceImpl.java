@@ -1,24 +1,18 @@
 package com.ssl.service;
 
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ssl.entities.Role;
-import com.ssl.entities.User;
 import com.ssl.repository.IRoleRepository;
-import com.ssl.repository.IUserRepository;
 
 @Service
 public class RoleServiceImpl implements IRoleService {
 	
 	@Autowired
-	private IRoleRepository roleRepository;
-	
-	@Autowired
-	private IUserRepository userRepository;
+	private IRoleRepository roleRepository;	
 	
 	@Override
 	public Role addRole(Role role) {
@@ -33,8 +27,7 @@ public class RoleServiceImpl implements IRoleService {
 	}
 
 	@Override
-	public Role getRoleById(long roleId) {
-		
+	public Role getRoleById(long roleId) {	
 		Role role = roleRepository.findById(roleId).orElse(null);
 		return role;
 	}
@@ -52,12 +45,6 @@ public class RoleServiceImpl implements IRoleService {
 	}
 
 	@Override
-	public List<User> getUsersByRole(String roleName) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public boolean deleteRoleById(long roleId) {
 		roleRepository.deleteRolesFromJointTableByRoleId(roleId);
 		Role role = getRoleById(roleId);
@@ -67,8 +54,9 @@ public class RoleServiceImpl implements IRoleService {
 
 	@Override
 	public boolean deleteAllRoles() {
+		roleRepository.deleteAllRolesFromJointTableByRoleId();
 		roleRepository.deleteAll();
 		return true;
 	}
-
+	
 }

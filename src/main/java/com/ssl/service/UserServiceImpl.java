@@ -40,8 +40,8 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public List<User> getUsersByRoleName(String roleName) {
-		// TODO Auto-generated method stub
-		return null;
+		List<User> users = userRepository.findAllUsersByRoleName(roleName);
+		return users;
 	}
 
 	@Override
@@ -62,5 +62,4 @@ public class UserServiceImpl implements IUserService {
 		userRepository.deleteAll();
 		return true;
 	}
-
 }

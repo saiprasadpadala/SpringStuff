@@ -12,6 +12,7 @@ public interface IUserService {
 	public List<User> getAllUsers();
 	public boolean deleteUserById(long userId);
 	public boolean deleteAllUsers();
-	public List<User> getUsersByRoleName(String roleName);
 	public List<User> getUsersByRoleId(long roleId);
+	public List<User> getUsersByRoleName(String roleName);
+
 }
